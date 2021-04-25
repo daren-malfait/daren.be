@@ -1,0 +1,18 @@
+overwrite: true
+schema: 'http://localhost:8000/___graphql'
+documents:
+  [
+    './src/**/*.tsx',
+    './src/**/*.ts',
+    './node_modules/gatsby-transformer-sharp/src/*.js',
+    './node_modules/gatsby-plugin-image/src/*.js',
+  ]
+generates:
+  src/@types/gatsby/graphql-types.d.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+  ./schema.json:
+    plugins:
+      - 'introspection'

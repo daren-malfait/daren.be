@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "~api": ["src/api"],
+      "~components": ["src/components"],
+      "~hooks": ["src/hooks"],
+      "~images": ["src/images"],
+      "~layouts": ["src/layouts"],
+      "~modules": ["src/modules"],
+      "~pages": ["src/pages"],
+      "~styles": ["config/styles"],
+      "~templates": ["src/templates"],
+      "~types": ["src/@types"],
+      "~utils": ["src/utils"],
+    }
+  }
+}
