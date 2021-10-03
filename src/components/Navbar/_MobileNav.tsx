@@ -54,28 +54,12 @@ const MobileNav: FunctionComponent<MobileNavProps> = ({
 };
 
 const Drawer = styled.div`
-  ${tw`
-  bg-primary-900
-  fixed
-  h-screen
-  right-0
-  top-0
-  transition-transform
-  transform
-  translate-x-full
-  z-30
-  w-screen
-  max-w-screen-xsm
-  md:hidden
-  `}
+  ${tw`fixed top-0 z-30 w-screen h-screen transition-transform transform[translateX(100vw)] left-0 bg-primary-900 max-w-screen-xsm md:hidden`}
 
   inset: 0px 0px 0px auto;
 
   &.open {
-    ${tw`
-    shadow-2xl
-    translate-x-0
-    `}
+    ${tw`transform translate-x-0 shadow-2xl `}
   }
 `;
 
