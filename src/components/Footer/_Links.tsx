@@ -7,21 +7,10 @@ import config from '../../../config/website';
 import breakpoints from '~styles/breakpoints';
 
 const Item = styled.div`
-  ${tw`
-  mb-default
-  flex
-  flex-col
-  flex-wrap
-  `}
+  ${tw`flex flex-col flex-wrap mb-default`}
 
   span, a {
-    ${tw`
-    self-start
-    inline-block
-    w-auto
-    text-lg
-    mb-2
-    `};
+    ${tw`self-start inline-block w-auto mb-2 text-lg `};
   }
 `;
 
@@ -54,7 +43,7 @@ const Links: FunctionComponent = () => (
         linkedIn
       </a>
       <a
-        href="https://github.com/daren-malfait"
+        href="https://github.com/darenmalfait"
         target="_blank"
         rel="noopener noreferrer"
       >

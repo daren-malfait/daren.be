@@ -35,8 +35,6 @@ jobs:
   release:
     needs: main
     runs-on: ubuntu-latest
-    if:
-      ${{ github.repository == 'daren-malfait/daren.be' && github.event_name == 'push' }}
     steps:
       - name: Cancel ongoing builds
         uses: styfle/cancel-workflow-action@0.9.0

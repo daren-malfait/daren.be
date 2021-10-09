@@ -15,6 +15,6 @@
 <!-- prettier-ignore-start -->
 [npm]: https://www.npmjs.com
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/github/workflow/status/daren-malfait/daren.be/CI?logo=github&style=flat-square
-[build]: https://github.com/daren-malfait/daren.be/actions?query=workflow
+[build-badge]: https://img.shields.io/github/workflow/status/darenmalfait/daren.be/CI?logo=github&style=flat-square
+[build]: https://github.com/darenmalfait/daren.be/actions?query=workflow
 <!-- prettier-ignore-end -->

@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/daren-malfait/daren.be"
+    "url": "https://github.com/darenmalfait/daren.be"
   },
   "bugs": {
-    "url": "https://github.com/daren-malfait/daren.be/issues"
+    "url": "https://github.com/darenmalfait/daren.be/issues"
   },
-  "homepage": "https://github.com/daren-malfait/daren.be#readme",
+  "homepage": "https://github.com/darenmalfait/daren.be#readme",
   "scripts": {
     "build": "gatsby build",
     "codegen:watch": "graphql-codegen --config codegen.yml -w",
