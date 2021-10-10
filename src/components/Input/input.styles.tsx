@@ -1,68 +1,37 @@
 import tw, { styled } from 'twin.macro';
 
 export const Input = styled.input`
-  ${tw`
-  relative
-  border
-  border-primary-700
-  focus:outline-none
-  rounded-md
-  focus:border-primary-200
-  focus:shadow-sm
-  w-full
-  p-3
-  h-16
-  `}
+  ${tw`relative w-full h-16 p-3 border rounded-md border-primary-700 focus:outline-none focus:border-primary-200 focus:shadow-sm`}
 
   &::placeholder {
     color: transparent;
 
-    ${tw`
-    transition-all
-    `}
+    ${tw`transition-all `}
   }
 
   &:focus,
   &:not(:placeholder-shown) {
-    ${tw`
-    pt-8
-    `}
+    ${tw`pt-8 `}
   }
 
   &:focus::placeholder {
-    ${tw`
-    text-primary-600
-    `}
+    ${tw` text-primary-600`}
   }
 
   &:focus ~ label,
   :not(:placeholder-shown) ~ label {
-    ${tw`
-    opacity-75
-    scale-75
-    -translate-y-3
-    translate-x-1
-    h-auto
-    `}
+    ${tw`h-auto transform scale-75 translate-x-1 -translate-y-3 opacity-75 `}
   }
 `;
 
 export const Container = styled.div`
-  ${tw`
-  mb-5
-  relative
-  `}
+  ${tw`relative mb-5 `}
 
   &.error {
-    ${tw`
-    text-error
-    animate-shake
-    `}
+    ${tw` text-error animate-shake`}
 
     ${Input} {
-      ${tw`
-      border-error
-      `}
+      ${tw` border-error`}
     }
   }
 `;
