@@ -1,4 +1,4 @@
-export const encode = (data: { [key: string]: string }): FormData => {
+export function encode(data: { [key: string]: string }): FormData {
   const formData = new FormData();
 
   Object.keys(data).forEach(k => {
@@ -6,4 +6,4 @@ export const encode = (data: { [key: string]: string }): FormData => {
   });
 
   return formData;
-};
+}

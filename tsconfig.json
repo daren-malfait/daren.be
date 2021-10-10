@@ -1,7 +1,13 @@
-
 {
-  "include": ["./**/*"],
-  "exclude": ["node_modules", "public", ".cache", "src/@types/gatsby/"],
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "public",
+    ".cache",
+    "src/@types/gatsby/"
+  ],
   "compilerOptions": {
     "jsx": "react",
     "strict": true,
@@ -15,17 +21,15 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "~api/*": ["src/api/*"],
-      "~components/*": ["src/components/*"],
-      "~hooks/*": ["src/hooks/*"],
-      "~images/*": ["src/images/*"],
-      "~layouts/*": ["src/layouts/*"],
-      "~modules/*": ["src/modules/*"],
-      "~pages/*": ["src/pages/*"],
-      "~styles/*": ["config/styles/*"],
-      "~templates/*": ["src/templates/*"],
-      "~types/*": ["src/@types/*"],
-      "~utils/*": ["src/utils/*"]
+      "~*": [
+        "src/*"
+      ],
+      "~styles/*": [
+        "config/styles/*"
+      ],
+      "~types/*": [
+        "src/@types/*"
+      ],
     },
     "preserveWatchOutput": true
   }

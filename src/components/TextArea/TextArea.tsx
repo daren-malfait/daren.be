@@ -1,36 +1,32 @@
-import React, {
-  FunctionComponent,
-  HTMLProps,
-  memo,
-  useEffect,
-  useRef,
-} from 'react';
-import cs from 'classnames';
 import autosize from 'autosize';
+import cs from 'classnames';
+import * as React from 'react';
 
 import * as S from './textArea.styles';
+
 import * as InputStyles from '../Input/input.styles';
 
 import Check from '~components/Check/Check';
 
-interface TextAreaProps extends Omit<HTMLProps<HTMLTextAreaElement>, 'as'> {
+interface TextAreaProps
+  extends Omit<React.HTMLProps<HTMLTextAreaElement>, 'as'> {
   id: string;
   error?: string | boolean;
   valid?: boolean;
   label: string;
 }
 
-const TextArea: FunctionComponent<TextAreaProps> = ({
+function TextArea({
   error,
   valid,
   id,
   placeholder,
   label,
   ...other
-}) => {
-  const ref = useRef<HTMLTextAreaElement>(null);
+}: TextAreaProps) {
+  const ref = React.useRef<HTMLTextAreaElement>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     autosize(ref.current);
   }, [ref]);
 
@@ -51,6 +47,6 @@ const TextArea: FunctionComponent<TextAreaProps> = ({
       )}
     </S.Container>
   );
-};
+}
 
-export default memo(TextArea);
+export default React.memo(TextArea);

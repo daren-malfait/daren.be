@@ -1,20 +1,21 @@
-import React, { FunctionComponent } from 'react';
 import { lighten } from 'polished';
+import * as React from 'react';
 
 import * as S from './alert.styles';
 
 import { AlertType } from './alertTypes';
 
-import { IconWrapper } from '~components/Input/input.styles';
 import Check from '~components/Check/Check';
+import { IconWrapper } from '~components/Input/input.styles';
 
 import colors from '~styles/colors';
 
 interface AlertProps {
   type?: AlertType;
+  children?: React.ReactNode;
 }
 
-const Alert: FunctionComponent<AlertProps> = ({ type, children }) => {
+function Alert({ type, children }: AlertProps) {
   let color = colors.textPrimary700;
   let background = colors.bgPrimary700;
 
@@ -41,6 +42,6 @@ const Alert: FunctionComponent<AlertProps> = ({ type, children }) => {
       )}
     </S.Alert>
   );
-};
+}
 
 export default Alert;

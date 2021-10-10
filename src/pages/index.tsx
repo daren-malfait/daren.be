@@ -1,16 +1,15 @@
-import React, { FunctionComponent, memo } from 'react';
+import * as React from 'react';
 
+import FadeIn from '~components/FadeIn/FadeIn';
 import * as Layout from '~components/layoutComponents';
 
+import Link from '~components/Link/Link';
+import { LinkLayout } from '~components/Link/linkTypes';
+import Seo from '~components/Seo/Seo';
+import Summary from '~components/Summary/Summary';
 import DefaultLayout from '~layouts/default';
 
-import Seo from '~components/Seo/Seo';
-import Link from '~components/Link/Link';
-import Summary from '~components/Summary/Summary';
-import FadeIn from '~components/FadeIn/FadeIn';
-import { LinkLayout } from '~components/Link/linkTypes';
-
-const HomePage: FunctionComponent = () => {
+function HomePage() {
   return (
     <DefaultLayout>
       <Seo
@@ -88,6 +87,6 @@ const HomePage: FunctionComponent = () => {
       </FadeIn>
     </DefaultLayout>
   );
-};
+}
 
-export default memo(HomePage);
+export default React.memo(HomePage);

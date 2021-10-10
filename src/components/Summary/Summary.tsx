@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from 'react';
+import * as React from 'react';
 
 import * as S from './summary.styles';
 
@@ -6,7 +6,7 @@ interface SummaryProps {
   items: string[];
 }
 
-const Summary: FunctionComponent<SummaryProps> = ({ items }) => {
+function Summary({ items }: SummaryProps) {
   return (
     <S.Container>
       <S.List>
@@ -16,6 +16,6 @@ const Summary: FunctionComponent<SummaryProps> = ({ items }) => {
       </S.List>
     </S.Container>
   );
-};
+}
 
-export default memo(Summary);
+export default React.memo(Summary);

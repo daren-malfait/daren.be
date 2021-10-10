@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
 import { RadioGroup as HeadlessRadioGroup } from '@headlessui/react';
+import * as React from 'react';
 
 import Option from './_Option';
 import { Container } from './radioGroup.styles';
@@ -8,11 +8,16 @@ interface RadioGroupProps {
   value?: any;
   label?: string;
   onChange: (value: any) => void;
+  children?: React.ReactNode;
 }
 
-const RadioGroup: FunctionComponent<RadioGroupProps> & {
-  Option: typeof Option;
-} = ({ value, onChange, children, label, ...props }) => {
+function RadioGroup({
+  value,
+  onChange,
+  children,
+  label,
+  ...props
+}: RadioGroupProps) {
   return (
     <HeadlessRadioGroup {...props} value={value} onChange={onChange}>
       {label && (
@@ -23,8 +28,6 @@ const RadioGroup: FunctionComponent<RadioGroupProps> & {
       <Container>{children}</Container>
     </HeadlessRadioGroup>
   );
-};
+}
 
-RadioGroup.Option = Option;
-
-export default RadioGroup;
+export default Object.assign(RadioGroup, { Option });

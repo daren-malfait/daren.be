@@ -1,17 +1,19 @@
-import React, { FunctionComponent, memo, useCallback, useState } from 'react';
 import cs from 'classnames';
+import * as React from 'react';
 import tw, { styled } from 'twin.macro';
 
 import { FormChoice } from './actions';
 
 import FormSelector from './FormSelector/FormSelector';
-import RegularForm from './RegularForm/RegularForm';
 import ProjectForm from './ProjectForm/ProjectForm';
+import RegularForm from './RegularForm/RegularForm';
 
-const ContactForm: FunctionComponent = () => {
-  const [selectedForm, setSelectedForm] = useState<FormChoice | null>(null);
+function ContactForm() {
+  const [selectedForm, setSelectedForm] = React.useState<FormChoice | null>(
+    null,
+  );
 
-  const onFormChoice = useCallback(choice => {
+  const onFormChoice = React.useCallback(choice => {
     setSelectedForm(choice);
   }, []);
 
@@ -66,18 +68,14 @@ const ContactForm: FunctionComponent = () => {
       </Option>
     </div>
   );
-};
+}
 
 const Option = styled.div`
-  ${tw`
-  hidden
-  `}
+  ${tw`hidden `}
 
   &.active {
-    ${tw`
-    block
-    `}
+    ${tw`block `}
   }
 `;
 
-export default memo(ContactForm);
+export default React.memo(ContactForm);

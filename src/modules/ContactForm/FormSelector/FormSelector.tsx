@@ -1,28 +1,28 @@
-import React, { FunctionComponent, memo, useCallback, useState } from 'react';
+import * as React from 'react';
 
+import tw, { styled } from 'twin.macro';
+
+import { FormChoice } from '../actions';
 import * as S from '../contactForm.styles';
 
 import Button from '~components/Button/Button';
 import FadeIn from '~components/FadeIn/FadeIn';
 import RadioGroup from '~components/RadioGroup/RadioGroup';
 
-import { FormChoice } from '../actions';
-import tw, { styled } from 'twin.macro';
-
 interface FormChoiseProps {
   onSubmit: (type: FormChoice) => void;
 }
 
-const FormSelector: FunctionComponent<FormChoiseProps> = ({ onSubmit }) => {
-  const [selected, setSelected] = useState(FormChoice.Project);
+function FormSelector({ onSubmit }: FormChoiseProps) {
+  const [selected, setSelected] = React.useState(FormChoice.Project);
 
-  const onChange = useCallback(val => {
+  const onChange = React.useCallback(val => {
     setSelected(val);
   }, []);
 
-  const onClick = useCallback(() => {
+  function onClick() {
     onSubmit(selected);
-  }, [onSubmit, selected]);
+  }
 
   return (
     <Container>
@@ -52,15 +52,12 @@ const FormSelector: FunctionComponent<FormChoiseProps> = ({ onSubmit }) => {
       </FadeIn>
     </Container>
   );
-};
+}
 
 const Container = styled(S.Wrapper)`
   > div {
-    ${tw`
-    space-y-8
-    max-w-2xl
-    `}
+    ${tw`max-w-2xl space-y-8 `}
   }
 `;
 
-export default memo(FormSelector);
+export default React.memo(FormSelector);

@@ -1,12 +1,12 @@
-import React, { FunctionComponent, memo, useCallback, useState } from 'react';
 import { useFormik } from 'formik';
-
-import * as S from '../contactForm.styles';
+import * as React from 'react';
 
 import validationSchema from './validationSchema';
 
-import { AlertType } from '~components/Alert/alertTypes';
+import * as S from '../contactForm.styles';
+
 import Alert from '~components/Alert/Alert';
+import { AlertType } from '~components/Alert/alertTypes';
 import Button from '~components/Button/Button';
 import FadeIn from '~components/FadeIn/FadeIn';
 import Input from '~components/Input/Input';
@@ -30,8 +30,10 @@ enum ProjectType {
 
 const FORM_NAME = 'project-form';
 
-const ProjectForm: FunctionComponent = () => {
-  const [formState, setFormState] = useState<FormState>(FormState.Initial);
+function ProjectForm() {
+  const [formState, setFormState] = React.useState<FormState>(
+    FormState.Initial,
+  );
 
   const {
     errors,
@@ -69,7 +71,7 @@ const ProjectForm: FunctionComponent = () => {
     validationSchema,
   });
 
-  const onProjectChange = useCallback(
+  const onProjectChange = React.useCallback(
     value => {
       setFieldValue('project', value);
     },
@@ -178,6 +180,6 @@ const ProjectForm: FunctionComponent = () => {
       )}
     </>
   );
-};
+}
 
-export default memo(ProjectForm);
+export default React.memo(ProjectForm);

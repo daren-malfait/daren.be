@@ -1,17 +1,17 @@
-import React, { FunctionComponent, memo, useState } from 'react';
 import { useFormik } from 'formik';
-
-import * as S from '../contactForm.styles';
+import * as React from 'react';
 
 import validationSchema from './validationSchema';
 
-import { encode } from '~utils/form';
-import Input from '~components/Input/Input';
-import FadeIn from '~components/FadeIn/FadeIn';
-import TextArea from '~components/TextArea/TextArea';
-import { Button } from '~components/Button/button.styles';
+import * as S from '../contactForm.styles';
+
 import Alert from '~components/Alert/Alert';
 import { AlertType } from '~components/Alert/alertTypes';
+import { Button } from '~components/Button/button.styles';
+import FadeIn from '~components/FadeIn/FadeIn';
+import Input from '~components/Input/Input';
+import TextArea from '~components/TextArea/TextArea';
+import { encode } from '~utils/form';
 
 enum FormState {
   Initial,
@@ -21,8 +21,10 @@ enum FormState {
 
 const FORM_NAME = 'talk-to-me-form';
 
-const RegularForm: FunctionComponent = () => {
-  const [formState, setFormState] = useState<FormState>(FormState.Initial);
+function RegularForm() {
+  const [formState, setFormState] = React.useState<FormState>(
+    FormState.Initial,
+  );
 
   const {
     handleSubmit,
@@ -127,6 +129,6 @@ const RegularForm: FunctionComponent = () => {
       )}
     </>
   );
-};
+}
 
-export default memo(RegularForm);
+export default React.memo(RegularForm);

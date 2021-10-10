@@ -1,14 +1,10 @@
-import React, { FunctionComponent, memo } from 'react';
 import cs from 'classnames';
+import * as React from 'react';
 
 import Link from '~components/Link/Link';
 import { LinkLayout, LinkType } from '~components/Link/linkTypes';
 
-const NavLink: FunctionComponent<LinkType> = ({
-  layout,
-  className,
-  ...linkProps
-}) => {
+function NavLink({ layout, className, ...linkProps }: LinkType) {
   return (
     <Link
       {...linkProps}
@@ -18,6 +14,6 @@ const NavLink: FunctionComponent<LinkType> = ({
       })}
     />
   );
-};
+}
 
-export default memo(NavLink);
+export default React.memo(NavLink);

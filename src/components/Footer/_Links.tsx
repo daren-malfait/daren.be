@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from 'react';
+import * as React from 'react';
 import Obfuscate from 'react-obfuscate';
 import tw, { styled } from 'twin.macro';
 
@@ -20,37 +20,39 @@ const Container = styled.div`
   }
 `;
 
-const Links: FunctionComponent = () => (
-  <Container>
-    <Item>
-      <span>Wil je contact opnemen?</span>
-      <Obfuscate
-        email={config.email}
-        headers={{
-          subject: 'Hey Daren!',
-          body: 'Hey Daren, Ik zag net jouw website.',
-        }}
-      />
-    </Item>
+function Links() {
+  return (
+    <Container>
+      <Item>
+        <span>Wil je contact opnemen?</span>
+        <Obfuscate
+          email={config.email}
+          headers={{
+            subject: 'Hey Daren!',
+            body: 'Hey Daren, Ik zag net jouw website.',
+          }}
+        />
+      </Item>
 
-    <Item>
-      <span>Vind me op andere plaatsen:</span>
-      <a
-        href="https://www.linkedin.com/in/darenmalfait/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        linkedIn
-      </a>
-      <a
-        href="https://github.com/darenmalfait"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        github
-      </a>
-    </Item>
-  </Container>
-);
+      <Item>
+        <span>Vind me op andere plaatsen:</span>
+        <a
+          href="https://www.linkedin.com/in/darenmalfait/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          linkedIn
+        </a>
+        <a
+          href="https://github.com/darenmalfait"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github
+        </a>
+      </Item>
+    </Container>
+  );
+}
 
-export default memo(Links);
+export default React.memo(Links);

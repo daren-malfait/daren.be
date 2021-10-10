@@ -1,8 +1,8 @@
-import React, { FunctionComponent, memo } from 'react';
+import * as React from 'react';
 
 import * as S from './gridBackground.styles';
 
-const GridBackgroundProps: FunctionComponent = () => {
+function GridBackgroundProps() {
   return (
     <S.Container>
       <S.GridContainer>
@@ -16,6 +16,6 @@ const GridBackgroundProps: FunctionComponent = () => {
       </S.GridContainer>
     </S.Container>
   );
-};
+}
 
-export default memo(GridBackgroundProps);
+export default React.memo(GridBackgroundProps);

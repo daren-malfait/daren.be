@@ -1,5 +1,5 @@
-import React, { FunctionComponent, memo, useCallback, useState } from 'react';
 import cs from 'classnames';
+import * as React from 'react';
 
 import * as S from './disclaimer.styles';
 
@@ -9,12 +9,12 @@ interface DisclaimerProps {
   companyName: string;
 }
 
-const Disclaimer: FunctionComponent<DisclaimerProps> = ({ companyName }) => {
-  const [hovered, setHovered] = useState(false);
+function Disclaimer({ companyName }: DisclaimerProps) {
+  const [hovered, setHovered] = React.useState(false);
 
-  const toggleHover = useCallback(() => {
+  function toggleHover() {
     setHovered(hoverState => !hoverState);
-  }, []);
+  }
 
   return (
     <S.Container>
@@ -45,6 +45,6 @@ const Disclaimer: FunctionComponent<DisclaimerProps> = ({ companyName }) => {
       </S.Part>
     </S.Container>
   );
-};
+}
 
-export default memo(Disclaimer);
+export default React.memo(Disclaimer);

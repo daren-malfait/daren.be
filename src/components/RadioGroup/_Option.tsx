@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
 import { RadioGroup } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/solid';
 import cs from 'classnames';
+import * as React from 'react';
 import tw, { styled } from 'twin.macro';
 
 import * as S from './radioGroup.styles';
@@ -12,12 +12,7 @@ interface OptionProps {
   description?: string;
 }
 
-const Option: FunctionComponent<OptionProps> = ({
-  value,
-  label,
-  description,
-  ...props
-}) => {
+function Option({ value, label, description, ...props }: OptionProps) {
   return (
     <S.Option value={value} {...props}>
       {({ active, checked }) => (
@@ -37,14 +32,10 @@ const Option: FunctionComponent<OptionProps> = ({
       )}
     </S.Option>
   );
-};
+}
 
 const Content = styled.div`
-  ${tw`
-  flex
-  items-center
-  text-sm
-  `}
+  ${tw`flex items-center text-sm `}
 `;
 
 const Label = tw(RadioGroup.Label)`

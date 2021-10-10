@@ -1,8 +1,12 @@
-import React, { FunctionComponent } from 'react';
+import * as React from 'react';
 
 import FadeInItem from './FadeInItem';
 
-const FadeIn: FunctionComponent = ({ children }) => {
+interface FadeInProps {
+  children: React.ReactNode;
+}
+
+function FadeIn({ children }: FadeInProps) {
   return (
     <div>
       {React.Children.map(children, (child, i) => {
@@ -10,6 +14,6 @@ const FadeIn: FunctionComponent = ({ children }) => {
       })}
     </div>
   );
-};
+}
 
 export default FadeIn;

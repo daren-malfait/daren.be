@@ -1,18 +1,18 @@
-import React, { FunctionComponent, memo } from 'react';
+import GatsbyLink from 'gatsby-link';
+import * as React from 'react';
 
+import Links from './_Links';
 import * as S from './footer.styles';
-import * as Layout from '~components/layoutComponents';
 
 import config from '../../../config/website';
 
-import Links from './_Links';
 import Disclaimer from '~components/Disclaimer/Disclaimer';
+import * as Layout from '~components/layoutComponents';
 import Link from '~components/Link/Link';
 
 import { LinkLayout } from '~components/Link/linkTypes';
-import GatsbyLink from 'gatsby-link';
 
-const Footer: FunctionComponent = () => {
+function Footer() {
   return (
     <Layout.Section as="footer">
       <Layout.Container>
@@ -37,6 +37,6 @@ const Footer: FunctionComponent = () => {
       </Layout.Container>
     </Layout.Section>
   );
-};
+}
 
-export default memo(Footer);
+export default React.memo(Footer);

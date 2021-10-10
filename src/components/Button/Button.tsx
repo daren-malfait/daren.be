@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useCallback } from 'react';
 import cs from 'classnames';
+import * as React from 'react';
 
 import * as S from './button.styles';
 
@@ -21,7 +21,7 @@ interface ButtonProps
   as?: any;
 }
 
-const Button: FunctionComponent<ButtonProps> = ({
+function Button({
   id,
   as,
   name,
@@ -30,17 +30,14 @@ const Button: FunctionComponent<ButtonProps> = ({
   disabled,
   small,
   ...other
-}) => {
-  const handleClick = useCallback(
-    e => {
-      if (disabled) {
-        return;
-      }
+}: ButtonProps) {
+  function handleClick(e) {
+    if (disabled) {
+      return;
+    }
 
-      if (onClick) onClick(e);
-    },
-    [onClick, disabled],
-  );
+    if (onClick) onClick(e);
+  }
 
   return (
     <S.Button
@@ -56,6 +53,6 @@ const Button: FunctionComponent<ButtonProps> = ({
       {...other}
     />
   );
-};
+}
 
 export default Button;

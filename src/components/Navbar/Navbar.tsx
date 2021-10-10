@@ -1,12 +1,11 @@
-import React, { FunctionComponent, useCallback, useState } from 'react';
-import GatsbyLink from 'gatsby-link';
 import cs from 'classnames';
+import GatsbyLink from 'gatsby-link';
+import * as React from 'react';
 
-import * as S from './navbar.styles';
-
-import Link from './_Link';
 import Hamburger from './_Hamburger';
+import Link from './_Link';
 import MobileNav from './_MobileNav';
+import * as S from './navbar.styles';
 
 import Logo from '~images/logo.svg';
 
@@ -14,16 +13,15 @@ interface NavbarProps {
   contact?: {
     email?: string;
   };
+  children?: React.ReactNode;
 }
 
-const Navbar: FunctionComponent<NavbarProps> & {
-  Link: typeof Link;
-} = ({ children, contact }) => {
-  const [open, setOpen] = useState(false);
+function Navbar({ children, contact }: NavbarProps) {
+  const [open, setOpen] = React.useState(false);
 
-  const onToggle = useCallback(() => {
+  const onToggle = React.useCallback(() => {
     setOpen(current => !current);
-  }, [setOpen]);
+  }, []);
 
   return (
     <S.Container>
@@ -42,8 +40,6 @@ const Navbar: FunctionComponent<NavbarProps> & {
       <S.Overlay className={cs({ open })} />
     </S.Container>
   );
-};
+}
 
-Navbar.Link = Link;
-
-export default Navbar;
+export default Object.assign(Navbar, { Link });

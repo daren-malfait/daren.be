@@ -1,5 +1,6 @@
-import tw, { styled, css } from 'twin.macro';
 import GatsbyLink from 'gatsby-link';
+import tw, { styled, css } from 'twin.macro';
+
 import { SmallButtonStyles } from '~components/Button/button.styles';
 
 const linkStyles = css`

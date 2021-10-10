@@ -1,11 +1,11 @@
-import React, { FunctionComponent, HTMLProps, memo } from 'react';
+import * as React from 'react';
 import tw from 'twin.macro';
 
-interface HamburgerProps extends HTMLProps<HTMLButtonElement> {
+interface HamburgerProps extends React.HTMLProps<HTMLButtonElement> {
   open: boolean;
 }
 
-const Hamburger: FunctionComponent<HamburgerProps> = ({ open, onClick }) => {
+function Hamburger({ open, onClick }: HamburgerProps) {
   return (
     <Button
       type="button"
@@ -31,11 +31,11 @@ const Hamburger: FunctionComponent<HamburgerProps> = ({ open, onClick }) => {
       </svg>
     </Button>
   );
-};
+}
 
 const Button = tw.button`
   rounded-lg
   md:hidden
 `;
 
-export default memo(Hamburger);
+export default React.memo(Hamburger);

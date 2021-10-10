@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, RefObject } from 'react';
 
-export const useClickOutside = (
+export function useClickOutside(
   callback?: EventListener,
-): RefObject<HTMLDivElement> | null => {
+): RefObject<HTMLDivElement> | null {
   const ref = useRef<HTMLDivElement>(null);
   const [isTouchEvent, setTouchEvent] = useState(false);
   const eventType = isTouchEvent ? `touchend` : `click`;
@@ -36,4 +36,4 @@ export const useClickOutside = (
   }
 
   return ref;
-};
+}

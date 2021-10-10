@@ -1,10 +1,11 @@
-import React, { FunctionComponent, memo } from 'react';
 import cs from 'classnames';
+import * as React from 'react';
 
 import * as S from './input.styles';
-import Check from '~components/Check/Check';
 
-interface InputProps extends React.HTMLProps<HTMLInputElement> {
+import Check from '../Check/Check';
+
+interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   as?: any;
   id: string;
   error?: string | boolean;
@@ -13,7 +14,7 @@ interface InputProps extends React.HTMLProps<HTMLInputElement> {
   type?: 'text' | 'number' | 'password' | 'email';
 }
 
-const Input: FunctionComponent<InputProps> = ({
+function Input({
   as,
   error,
   valid,
@@ -22,7 +23,7 @@ const Input: FunctionComponent<InputProps> = ({
   type,
   label,
   ...other
-}) => {
+}: InputProps) {
   return (
     <S.Container className={cs({ error, valid })}>
       <S.Input
@@ -42,6 +43,6 @@ const Input: FunctionComponent<InputProps> = ({
       )}
     </S.Container>
   );
-};
+}
 
-export default memo(Input);
+export default React.memo(Input);

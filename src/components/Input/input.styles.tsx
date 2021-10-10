@@ -1,12 +1,28 @@
-import tw, { styled } from 'twin.macro';
+import tw, { styled, css } from 'twin.macro';
 
 export const Input = styled.input`
-  ${tw`relative w-full h-16 p-3 border rounded-md border-primary-700 focus:outline-none focus:border-primary-200 focus:shadow-sm`}
+  ${tw`
+  relative
+  border
+  border-primary-700
+  text-primary-700
+  rounded-md
+  w-full
+  p-3
+  h-16
+  focus:(
+    outline-none
+    border-primary-200
+    shadow-sm
+    )
+  xl:text-lg
+  `}
 
   &::placeholder {
-    color: transparent;
-
-    ${tw`transition-all `}
+    ${tw`
+    color[transparent]
+    transition-all
+    `}
   }
 
   &:focus,
@@ -20,36 +36,31 @@ export const Input = styled.input`
 
   &:focus ~ label,
   :not(:placeholder-shown) ~ label {
-    ${tw`h-auto transform scale-75 translate-x-1 -translate-y-3 opacity-75 `}
+    ${tw`h-auto transform[scale(0.75) translate(0.25rem, -0.75rem)]`}
   }
 `;
 
-export const Container = styled.div`
-  ${tw`relative mb-5 `}
+// styled because component is used in other styled component
+export const Label = styled.label(() => [
+  tw`absolute top-0 left-0 h-full px-3 py-5 text-base transition-all duration-100 ease-in-out origin-left transform pointer-events-none text-primary-700`,
+]);
 
-  &.error {
-    ${tw` text-error animate-shake`}
+export const Container = styled.div(() => [
+  css`
+    &.error {
+      ${tw` text-error animate-shake`}
 
-    ${Input} {
-      ${tw` border-error`}
+      ${Input} {
+        ${tw` border-error`}
+      }
+
+      ${Label} {
+        ${tw` text-error`}
+      }
     }
-  }
-`;
-
-export const Label = tw.label`
-  absolute
-  top-0
-  left-0
-  px-3
-  py-5
-  h-full
-  pointer-events-none
-  transform
-  origin-left
-  transition-all
-  duration-100
-  ease-in-out
-`;
+  `,
+  tw`relative mb-5 `,
+]);
 
 export const IconWrapper = tw.div`
   absolute

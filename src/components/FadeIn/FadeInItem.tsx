@@ -1,16 +1,14 @@
-import React, { FunctionComponent } from 'react';
+import * as React from 'react';
 import tw, { styled } from 'twin.macro';
 
 type AnitemateInViewItemProps = {
   delay: number;
+  children?: React.ReactNode;
 };
 
-const FadeInItem: FunctionComponent<AnitemateInViewItemProps> = ({
-  delay,
-  children,
-}) => {
+function FadeInItem({ delay, children }: AnitemateInViewItemProps) {
   return <Container delay={delay}>{children}</Container>;
-};
+}
 
 type ContainerProps = {
   delay: number;
@@ -19,10 +17,7 @@ type ContainerProps = {
 const Container = styled.div<ContainerProps>`
   --delay: ${({ delay }) => `${delay}ms`};
 
-  ${tw`
-  opacity-0
-  animate-fade-in-up
-  `}
+  ${tw`opacity-0  animate-fade-in-up`}
 
   animation-delay: var(--delay);
 `;

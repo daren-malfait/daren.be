@@ -1,15 +1,15 @@
-import React, { FunctionComponent } from 'react';
-import tw, { styled } from 'twin.macro';
 import cs from 'classnames';
-import { useClickOutside } from '~hooks/use-click-outside';
 import GatsbyLink from 'gatsby-link';
-
-import * as S from './navbar.styles';
+import * as React from 'react';
+import tw, { styled } from 'twin.macro';
 
 import Hamburger from './_Hamburger';
+import * as S from './navbar.styles';
+
+import SmallContact from '~components/SmallContact/SmallContact';
+import { useClickOutside } from '~hooks/use-click-outside';
 
 import Logo from '~images/logo.svg';
-import SmallContact from '~components/SmallContact/SmallContact';
 
 interface MobileNavProps {
   open: boolean;
@@ -17,14 +17,10 @@ interface MobileNavProps {
   contact?: {
     email?: string;
   };
+  children?: React.ReactNode;
 }
 
-const MobileNav: FunctionComponent<MobileNavProps> = ({
-  open,
-  children,
-  contact,
-  onClose,
-}) => {
+function MobileNav({ open, children, contact, onClose }: MobileNavProps) {
   const ref = useClickOutside(open ? onClose : undefined);
 
   return (
@@ -51,7 +47,7 @@ const MobileNav: FunctionComponent<MobileNavProps> = ({
       </Container>
     </Drawer>
   );
-};
+}
 
 const Drawer = styled.div`
   ${tw`fixed top-0 z-30 w-screen h-screen transition-transform transform[translateX(100vw)] left-0 bg-primary-900 max-w-screen-xsm md:hidden`}

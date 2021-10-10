@@ -1,13 +1,13 @@
-import React, { FunctionComponent, memo } from 'react';
+import * as React from 'react';
 
 import * as Layout from '~components/layoutComponents';
 
+import Seo from '~components/Seo/Seo';
 import DefaultLayout from '~layouts/default';
 
-import Seo from '~components/Seo/Seo';
 import ContactForm from '~modules/ContactForm/ContactForm';
 
-const HomePage: FunctionComponent = () => {
+function ContactPage() {
   return (
     <DefaultLayout>
       <Seo
@@ -22,6 +22,6 @@ const HomePage: FunctionComponent = () => {
       </Layout.Section>
     </DefaultLayout>
   );
-};
+}
 
-export default memo(HomePage);
+export default React.memo(ContactPage);
